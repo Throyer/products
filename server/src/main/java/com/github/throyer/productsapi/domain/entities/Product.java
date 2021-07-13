@@ -24,6 +24,9 @@ public class Product {
     @Column(name = "description", nullable = false)
     private String description;
 
+    @Column(name = "target_market", nullable = false)
+    private String targetMarket;
+
     @ManyToMany(cascade = CascadeType.DETACH)
     @JoinTable(name = "product_technology",
         joinColumns = {
@@ -56,9 +59,16 @@ public class Product {
         this.description = description;
     }
 
-
     public List<Technology> getTechnologies() {
         return technologies;
+    }
+
+    public String getTargetMarket() {
+        return targetMarket;
+    }
+
+    public void setTargetMarket(String targetMarket) {
+        this.targetMarket = targetMarket;
     }
 
     public void setTechnologies(List<Technology> technologies) {
