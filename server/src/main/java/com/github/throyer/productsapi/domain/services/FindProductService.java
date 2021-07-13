@@ -29,13 +29,25 @@ public class FindProductService {
 
     public Page<Product> find(Pageable pageable, SearchProduct search) {
 
-        Specification<Product> where = (user, query, builder) -> {
+        Specification<Product> where = (product, query, builder) -> {
             List<Predicate> predicates = new ArrayList<>();
 
             search
                 .getName()
                     .ifPresent(name -> 
-                        predicates.add(like(builder, user.get("name"), name)));
+                        predicates.add(like(builder, product.get("name"), name)));
+            
+            if (!search.getTechnologies().isEmpty()) {
+
+                var technology = product.join("technologies");
+
+                predicates.add(builder.or(search
+                    .getTechnologies()
+                        .stream()
+                            .map(name -> like(builder, technology.get("name"), name))
+                                .toList()
+                                    .toArray(new Predicate[search.getTechnologies().size()])));
+            }
             
             return builder.and(predicates.toArray(new Predicate[predicates.size()]));
         };
@@ -45,14 +57,25 @@ public class FindProductService {
 
     public class SearchProduct {
         private String name;
+        private List<String> technologies = new ArrayList<>();
         
         public Optional<String> getName() {
-            return Optional.ofNullable(name);
+            return Optional.ofNullable(name);            
         }
 
         public void setName(String name) {
             this.name = name;
         }
+
+        public List<String> getTechnologies() {
+            return technologies;
+        }
+
+        public void setTechnologies(List<String> technologies) {
+            this.technologies = technologies;
+        }
+        
+        
     }
 
     private static Predicate like(CriteriaBuilder builder, Expression<String> expression, String value) {
