@@ -1,5 +1,7 @@
 package com.github.throyer.productsapi.domain.services;
 
+import static com.github.throyer.productsapi.domain.shared.Page.of;
+
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +13,9 @@ import javax.persistence.criteria.Predicate;
 
 import com.github.throyer.productsapi.domain.entities.Product;
 import com.github.throyer.productsapi.domain.repositories.ProductRepository;
+import com.github.throyer.productsapi.domain.shared.Page;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -52,7 +54,7 @@ public class FindProductService {
             return builder.and(predicates.toArray(new Predicate[predicates.size()]));
         };
 
-        return repository.findAll(where, pageable);
+        return of(repository.findAll(where, pageable));
     }
 
     public class SearchProduct {

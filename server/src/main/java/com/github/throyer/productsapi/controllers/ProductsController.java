@@ -3,9 +3,9 @@ package com.github.throyer.productsapi.controllers;
 import com.github.throyer.productsapi.domain.entities.Product;
 import com.github.throyer.productsapi.domain.services.FindProductService;
 import com.github.throyer.productsapi.domain.services.FindProductService.SearchProduct;
+import com.github.throyer.productsapi.domain.shared.Page;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

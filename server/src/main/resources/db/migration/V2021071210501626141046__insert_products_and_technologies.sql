@@ -53,5 +53,9 @@ VALUES
     ),
     (
         (SELECT id FROM "product" WHERE "name" = 'Crypto dashboard'),
+        (SELECT id FROM "technology" WHERE "name" = 'Heroku')
+    ),
+    (
+        (SELECT id FROM "product" WHERE "name" = 'Crypto dashboard'),
         (SELECT id FROM "technology" WHERE "name" = 'MongoDB')
     );
