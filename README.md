@@ -5,7 +5,7 @@
 - node: `^12`
 - yarn: `^1.22.5`
 
-> recomendo a instalação do maven localmente, mas o projeto tem uma versão portatil nos arquivos [`mvnw`](./mvnw) e [`mvnw.cmd`](./mvnw.cmd)
+> recomendo a instalação do maven localmente, mas o projeto tem uma versão portátil nos arquivos [`mvnw`](./mvnw) e [`mvnw.cmd`](./mvnw.cmd)
 
 Esse projeto foi configurado com [Spring Initializr](https://start.spring.io/).
 
@@ -18,7 +18,7 @@ Esse projeto foi configurado com [Spring Initializr](https://start.spring.io/).
 # Clone o repositório e acesse o diretório.
 $ git clone git@github.com:Throyer/products.git && cd products/server
 
-# Baixe as dependencias (o parametro -DskipTests pula os testes)
+# Baixe as dependências (o parâmetro -DskipTests pula os testes)
 $ mvnw install -DskipTests
 
 # Rode a aplicação
@@ -47,7 +47,7 @@ $ mvnw test -Dtest=ProductsControllerTests#should_list_products
 # Clone o repositório e acesse o diretório.
 $ git clone git@github.com:Throyer/products.git && cd products/web
 
-# Baixe as dependencias
+# Baixe as dependências
 $ yarn
 
 # Rode a aplicação
