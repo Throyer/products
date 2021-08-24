@@ -5,7 +5,7 @@
 - node: `^12`
 - yarn: `^1.22.5`
 
-> recomendo a instalação do maven localmente, mas o projeto tem uma versão portátil nos arquivos [`mvnw`](./mvnw) e [`mvnw.cmd`](./mvnw.cmd)
+> recomendo a instalação do maven localmente, mas o projeto tem uma versão portátil nos arquivos [`mvnw`](./server/mvnw) e [`mvnw.cmd`](./server/mvnw.cmd)
 
 Esse projeto foi configurado com [Spring Initializr](https://start.spring.io/).
 
