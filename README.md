@@ -1,6 +1,6 @@
 # Requisitos
 
-- MariaDB: `^10.6.1`
+- Postgre SQL: `^13`
 - Java: `^16`
 - node: `^12`
 - yarn: `^1.22.5`
